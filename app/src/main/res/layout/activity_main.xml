@@ -10,40 +10,52 @@
         android:id="@+id/textViewTitre"
         android:layout_width="157dp"
         android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
         android:text="Pain au chocolat"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="32dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewPrix"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="44dp"
         android:text="1.0 €"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="72dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitre" />
 
     <TextView
         android:id="@+id/textViewDescription"
-        android:layout_width="302dp"
-        android:layout_height="157dp"
+        android:layout_width="369dp"
+        android:layout_height="158dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:text="Une vienoisserie au beurre et au chocolat"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="111dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.307"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPrix" />
 
     <ToggleButton
         android:id="@+id/toggleButtonAchete"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:capitalize="characters"
         android:text="ToggleButton"
         android:textOff="Acheté"
-        android:textOn="A acheté"
+        android:textOn="A acheter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -61,5 +73,18 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_public_black_24dp" />
+
+    <view
+        android:id="@+id/degreEnvie"
+        style="@style/Widget.MaterialRatingBar.RatingBar"
+        class="me.zhanghai.android.materialratingbar.MaterialRatingBar"
+        id="@+id/view"
+        android:layout_width="238dp"
+        android:layout_height="67dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewPrix"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textViewPrix"
+        app:layout_constraintVertical_bias="0.419" />
 
 </android.support.constraint.ConstraintLayout>
