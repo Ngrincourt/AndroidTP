@@ -75,13 +75,16 @@
         app:srcCompat="@drawable/ic_public_black_24dp" />
 
     <view
-        android:id="@+id/degreEnvie"
+        android:id="@+id/ratingBarDegreEnvie"
         style="@style/Widget.MaterialRatingBar.RatingBar"
         class="me.zhanghai.android.materialratingbar.MaterialRatingBar"
         id="@+id/view"
-        android:layout_width="238dp"
-        android:layout_height="67dp"
+        android:layout_width="176dp"
+        android:layout_height="38dp"
         android:layout_marginEnd="24dp"
+        android:indeterminate="false"
+        android:numStars="4"
+        android:stepSize="1"
         app:layout_constraintBottom_toBottomOf="@+id/textViewPrix"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textViewPrix"

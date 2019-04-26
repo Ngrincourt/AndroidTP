@@ -26,6 +26,20 @@ public class Article implements Parcelable {
         url = in.readString();
     }
 
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(nom);
+        dest.writeFloat(prix);
+        dest.writeString(description);
+        dest.writeInt(degreEnvie);
+        dest.writeString(url);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
     public static final Creator<Article> CREATOR = new Creator<Article>() {
         @Override
         public Article createFromParcel(Parcel in) {
@@ -78,17 +92,5 @@ public class Article implements Parcelable {
         this.url = url;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(nom);
-        dest.writeFloat(prix);
-        dest.writeString(description);
-        dest.writeInt(degreEnvie);
-        dest.writeString(url);
-    }
 }
