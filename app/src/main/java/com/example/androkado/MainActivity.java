@@ -4,14 +4,14 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import bo.Article;
 
 public class MainActivity extends AppCompatActivity {
+    public static final String KEY_EXTRA_ARTICLE = "KEY_EXTRA_ARTICLE";
     private TextView textView;
 
     @Override
@@ -23,23 +23,27 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        final Article article = new Article("Pain au chocolat", 5, "Ceci est un pain au chocolat", 4, "cecicestuneurl");
-        TextView titre = findViewById(R.id.textViewTitre);
-        TextView prix = findViewById(R.id.textViewPrix);
-        TextView description = findViewById(R.id.textViewDescription);
 
+        final Article article = new Article("Pain au chocolat", 5, "Ceci est un pain au chocolat", 2, "cecicestuneurl");
 
+        TextView textViewTitre = findViewById(R.id.textViewTitre);
+        TextView textViewPrix = findViewById(R.id.textViewPrix);
+        TextView textViewDescription = findViewById(R.id.textViewDescription);
+        RatingBar ratingBarDegreEnvie = findViewById(R.id.ratingBarDegreEnvie);
 
-        titre.setText(article.getNom());
-        prix.setText(String.valueOf(article.getPrix()));
-        description.setText(article.getDescription());
+        textViewTitre.setText(article.getNom());
+        textViewPrix.setText(String.valueOf(article.getPrix()));
+        textViewDescription.setText(article.getDescription());
+        ratingBarDegreEnvie.setRating(article.getDegreEnvie());
 
         ImageButton buttonWeb = findViewById(R.id.imageButtonWeb);
         buttonWeb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, article.getUrl(), Toast.LENGTH_SHORT).show();
-
+                //Toast.makeText(MainActivity.this, article.getUrl(), Toast.LENGTH_SHORT).show();
+               Intent intentToInfoUrl = new Intent(MainActivity.this, InfoUrlActivity.class);
+               intentToInfoUrl.putExtra(KEY_EXTRA_ARTICLE, article);
+               startActivity(intentToInfoUrl);
             }
         });
 
