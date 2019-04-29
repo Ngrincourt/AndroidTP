@@ -61,6 +61,16 @@ public class ArticlesRecyclerViewAdapter extends RecyclerView.Adapter<ArticlesRe
         articleViewHolder.textViewPrix.setText(String.valueOf(articleToDisplay.getPrix()));
         articleViewHolder.ratingBarDegreEnvie.setRating(articleToDisplay.getDegreEnvie());
 
+        // CHANGER LE RATING BAR PERMET DE LE CHANGER EN BDD 
+        articleViewHolder.ratingBarDegreEnvie.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+               articleToDisplay.setDegreEnvie(rating);
+
+
+            }
+        });
+
         // Permet de rendre clickable un élément de la liste
         articleViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
