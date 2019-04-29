@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuStylo"
+        android:icon="@drawable/ic_brush_black_24dp"
+        android:title="Item"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menuEnvoye"
+        android:icon="@drawable/ic_send_black_24dp"
+        android:title="Item"
+        app:showAsAction="always" />
+</menu>

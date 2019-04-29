@@ -5,39 +5,28 @@ import android.os.Parcelable;
 
 public class Article implements Parcelable {
     private String nom;
-    private float prix;
+    private double prix;
     private String description;
-    private int degreEnvie;
+    private float degreEnvie;
     private String url;
+    private boolean isAchete;
 
-    public Article(String nom, float prix, String description, int degreEnvie, String url) {
+    public Article(String nom, double prix, String description, float degreEnvie, String url, boolean isAchete) {
         this.nom = nom;
         this.prix = prix;
         this.description = description;
         this.degreEnvie = degreEnvie;
         this.url = url;
+        this.isAchete = isAchete;
     }
 
     protected Article(Parcel in) {
         nom = in.readString();
-        prix = in.readFloat();
+        prix = in.readDouble();
         description = in.readString();
-        degreEnvie = in.readInt();
+        degreEnvie = in.readFloat();
         url = in.readString();
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(nom);
-        dest.writeFloat(prix);
-        dest.writeString(description);
-        dest.writeInt(degreEnvie);
-        dest.writeString(url);
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
+        isAchete = in.readByte() != 0;
     }
 
     public static final Creator<Article> CREATOR = new Creator<Article>() {
@@ -60,11 +49,11 @@ public class Article implements Parcelable {
         this.nom = nom;
     }
 
-    public float getPrix() {
+    public double getPrix() {
         return prix;
     }
 
-    public void setPrix(float prix) {
+    public void setPrix(double prix) {
         this.prix = prix;
     }
 
@@ -76,11 +65,11 @@ public class Article implements Parcelable {
         this.description = description;
     }
 
-    public int getDegreEnvie() {
+    public float getDegreEnvie() {
         return degreEnvie;
     }
 
-    public void setDegreEnvie(int degreEnvie) {
+    public void setDegreEnvie(float degreEnvie) {
         this.degreEnvie = degreEnvie;
     }
 
@@ -92,5 +81,26 @@ public class Article implements Parcelable {
         this.url = url;
     }
 
+    public boolean isAchete() {
+        return isAchete;
+    }
 
+    public void setAchete(boolean achete) {
+        isAchete = achete;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(nom);
+        dest.writeDouble(prix);
+        dest.writeString(description);
+        dest.writeFloat(degreEnvie);
+        dest.writeString(url);
+        dest.writeByte((byte) (isAchete ? 1 : 0));
+    }
 }
